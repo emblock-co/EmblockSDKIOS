@@ -1,0 +1,4 @@
+framework module EmblockSDK {
+  header "EmblockSDK-Swift.h"
+  requires objc
+}

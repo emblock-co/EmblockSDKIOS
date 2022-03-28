@@ -1,0 +1,46 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios15.2 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name EmblockSDK
+import BigInt
+import Foundation
+import SimpleKeychain
+import Swift
+import _Concurrency
+import web3
+public class WalletManager {
+  public init()
+  public func createWallet() -> Swift.Bool
+  public func getAddress() -> Swift.String?
+  public func getAccount() throws -> web3.EthereumAccount
+  public func sign(message: Foundation.Data) throws -> Swift.String?
+  public func sign(tx: web3.EthereumTransaction) throws -> Foundation.Data?
+  public func clear()
+  public func hasWallet() -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class EthKeyLocalStorage : web3.EthereumKeyStorageProtocol {
+  public func storePrivateKey(key: Foundation.Data) throws
+  public func loadPrivateKey() throws -> Foundation.Data
+  @objc deinit
+}
+public enum WalletManagerError : Swift.Error {
+  case walletNotCreated
+  case cannotAccessWallet
+  public static func == (a: EmblockSDK.WalletManagerError, b: EmblockSDK.WalletManagerError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RLP2 {
+}
+@_hasMissingDesignatedInitializers public class KeychainHelper {
+  @objc deinit
+}
+extension Swift.String {
+  public var hexadecimal: Foundation.Data? {
+    get
+  }
+}
+extension EmblockSDK.WalletManagerError : Swift.Equatable {}
+extension EmblockSDK.WalletManagerError : Swift.Hashable {}
